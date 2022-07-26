@@ -119,3 +119,61 @@ class _QrResultState extends State<QrResult> {
         ));
   }
 }
+
+class formqstn extends StatelessWidget {
+  final String hint, data;
+  final TextEditingController? tec;
+  const formqstn({Key? key, required this.data, required this.hint, this.tec})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // width: 200,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            data,
+            style: TextStyle(
+              color: Colors.red,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          Text(
+            hint,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 25,
+              // fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+Widget abc() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: formqstn(
+          data: "Name",
+          hint: "Ajay J",
+        ),
+      ),
+      // SizedBox(width: 100),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: formqstn(
+          data: "Name",
+          hint: "Ajay J",
+        ),
+      ),
+    ],
+  );
+}

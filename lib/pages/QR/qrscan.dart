@@ -59,6 +59,47 @@ Future<void> qrfn() async {
   }
 }
 
+Future<void> qrfn1() async {
+  for (int i = 0; i < 3;) {
+    int k = await getData1();
+    String cameraScanResult = "k";
+    print("hello");
+    var camerastatus = await Permission.camera.status;
+    if (camerastatus.isGranted) {
+      print("object");
+      var cameraScanResult1 = await scanner.scan();
+      cameraScanResult = cameraScanResult1.toString();
+      Cuser.emailid = cameraScanResult;
+      idtosearch = cameraScanResult;
+    } else {
+      var isGranted = await Permission.camera.request();
+      if (isGranted.isGranted) {
+        var cameraScanResult1 = await scanner.scan();
+        cameraScanResult = cameraScanResult1.toString();
+        Cuser.emailid = cameraScanResult;
+        idtosearch = cameraScanResult;
+      }
+    }
+    if (k == 1) {
+      int flag = 0;
+      for(int p = 0;p<lst.length;p++) {
+        if(lst[p] == CStudent.name) {
+          flag = 1;
+        }
+      }
+      if(flag == 0) {
+        lst.add(CStudent.name);
+        i++;
+      }
+    } 
+    else {
+      showToast("No such user", Colors.red);
+      Get.toNamed('/first');
+    }
+  }
+  Get.toNamed('/attendance');
+}
+
 Future<void> biofn() async {
   // int k = await getData1();
   String cameraScanResult = "k";
@@ -80,9 +121,9 @@ Future<void> biofn() async {
     }
   }
   // if (k == 1) {
-    Get.toNamed('/qrbio');
+  Get.toNamed('/qrbio');
   // } else {
-    // showToast("No such user", Colors.red);
-    // Get.toNamed('/first');
+  // showToast("No such user", Colors.red);
+  // Get.toNamed('/first');
   // }
 }

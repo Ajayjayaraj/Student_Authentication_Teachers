@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project/pages/Attendance/attendance.dart';
 import 'package:project/pages/newpage.dart';
 import '../pages/First Page/firstpage.dart';
 import '../pages/QR/Result.dart';
@@ -18,6 +19,7 @@ Widget Decider(String page) {
       GetPage(name: '/first', page: () => FirstPage()),
       GetPage(name: '/qrres', page: () => QrResult()),
       GetPage(name: '/newPage', page: (() => NewPage())),
+      GetPage(name: '/attendance', page: (() => Attendance())),
     ],
   );
 }

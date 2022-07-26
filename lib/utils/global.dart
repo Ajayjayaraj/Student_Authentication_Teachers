@@ -6,6 +6,8 @@ import '../MainScreens/widgettree.dart';
 
 int restsender = 0;
 
+List lst = [];
+
 class UserApp {
   String name = "";
   String emailid = "";
